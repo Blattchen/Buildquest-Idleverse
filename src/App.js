@@ -10,8 +10,8 @@ function Particles({ pointCount }) {
     (ref.current.rotation.z += 0.002, ref.current.position.z += 0.2))
 
   useFrame(() => {
-    if (ref.current.position.z >= 100) {
-      ref.current.position.z = -450
+    if (ref.current.position.z >= 550) {
+      ref.current.position.z = 0
     }
   })
 
@@ -39,7 +39,7 @@ function Particles({ pointCount }) {
 function App() {
 
   return (
-    <Canvas camera={{ fov: 60, near: 1, far: 1000 }}>
+    <Canvas camera={{ fov: 60, near: 1, far: 1000, position: [0, 0, 400] }}>
       <Suspense fallback={null}>
         <Particles pointCount={6000} />
       </Suspense>
