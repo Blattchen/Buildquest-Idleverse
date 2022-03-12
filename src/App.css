@@ -53,3 +53,16 @@
     background: transparent;
     color: white;
   }
+  .span1 {
+    font-weight: 100;
+    font-size: 30px;
+    outline: 1px solid white;
+    border: 10px solid transparent;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: transparent;
+    color: yellow;
+    position: absolute;
+    z-index: auto;
+    top: 50%;
+    left: 50%;
+  }

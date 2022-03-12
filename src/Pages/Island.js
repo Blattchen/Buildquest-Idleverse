@@ -1,5 +1,5 @@
-import './App.css';
-import { OrbitControls, Stars, softShadows } from '@react-three/drei'
+import '../App.css';
+import { OrbitControls, Stars } from '@react-three/drei'
 import { Suspense } from 'react'
 
 import { Canvas } from '@react-three/fiber'
@@ -18,16 +18,9 @@ const Scene = () => {
   return <primitive object={obj} scale={0.4} />;
 };
 
-function Box() {
-  return (
-    <mesh>
-      <boxBufferGeometry attach='geometry' />
-      <meshLambertMaterial attach='material' color='blue' />
-    </mesh>
-  )
-}
 
-function App() {
+
+function Island() {
 
   return (
     <Canvas>
@@ -42,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default Island;
