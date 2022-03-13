@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-route
 import Login from "./Pages/Login";
 import Island from "./Pages/Island";
 
+function clickMe() {
+    // alert("You clicked me!");
+    console.log("hello");
+}
+
 function App() {
     return (
-        <Router>
-            {/* <button className="span1" onClick={useNavigate('/island')}>
-                connect
-            </button> */}
+        <div className="div">
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/island" element={<Island />} />
             </Routes>
-        </Router>
+        </div>
     );
 }
 
