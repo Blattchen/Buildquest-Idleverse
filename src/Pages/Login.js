@@ -4,25 +4,31 @@ import { Html } from '@react-three/drei'
 import { useNavigate } from 'react-router-dom';
 import React, { useMemo, Suspense, useRef } from "react"
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
-
+import {useEffect, useState } from 'react'
+import Web3Modal from "web3modal"
+import { ethers } from 'ethers'
 // Connect wallet function
-
-function clickMe() {
-  // alert("You clicked me!");
-  console.log("hello");
-}
 
 // Add HTML to react three fiber
 
 const HTMLContent = () => {
+  const [address, setAddress] = useState([]);
+
+  const connectToMetamask = async () => {
+    const web3Modal = new Web3Modal()
+    const connection = await web3Modal.connect()
+    const provider = new ethers.providers.Web3Provider(connection)
+    setAddress(connection.selectedAddress)
+  }
   return (
     <Html scale={50} position={[-170, 100, 100]}>
       <div className="annotation">
         <span>WELCOME TO IDLEVERSE</span>
         <div className='box'>
-          <button className='span' onClick={clickMe}>
+          <button className='span' onClick={connectToMetamask}>
             connect
           </button>
+          <div>address = {address}</div>
         </div>
       </div>
     </Html>
