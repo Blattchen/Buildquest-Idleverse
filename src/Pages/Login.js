@@ -72,15 +72,18 @@ function Particles({ pointCount }) {
   )
 }
 function Login() {
-
+  const navigate = useNavigate();
   return (
-    // render login Scence
-    <Canvas camera={{ fov: 60, near: 1, far: 1000, position: [0, 0, 400] }}>
-      <HTMLContent />
-      <Suspense fallback={null}>
-        <Particles pointCount={6000} />
-      </Suspense>
-    </Canvas>
+    <div className='div'>
+      <button className='span1' onClick={() => navigate('/island')}>Connect</button>
+
+      <Canvas camera={{ fov: 60, near: 1, far: 1000, position: [0, 0, 400] }}>
+        <HTMLContent />
+        <Suspense fallback={null}>
+          <Particles pointCount={6000} />
+        </Suspense>
+      </Canvas>
+    </div>
   );
 }
 

@@ -7,6 +7,9 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
 import { useLoader } from '@react-three/fiber'
 
+import { useGLTF } from '@react-three/drei'
+
+// load model into r3f
 const Scene = () => {
   const materials = useLoader(MTLLoader, "/floating.mtl");
   const obj = useLoader(OBJLoader, "/floating.obj", (loader) => {
@@ -18,6 +21,12 @@ const Scene = () => {
   return <primitive object={obj} scale={0.4} />;
 };
 
+// baked model test
+function Model() {
+  const gltf = useGLTF('/island-baked.glb', true);
+  return <primitive object={gltf.scene} dispose={null} />;
+}
+
 
 
 function Island() {
@@ -25,7 +34,7 @@ function Island() {
   return (
     <Canvas>
       <Suspense fallback={null}>
-        <Scene />
+        <Model />
         <OrbitControls />
         <Stars />
         <ambientLight intensity={0.3} />
